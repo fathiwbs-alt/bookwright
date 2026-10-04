@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bookwright — Your ebook, written and designed for you.</title>
+<meta name="description" content="Bookwright is a done-for-you ebook studio. We turn your expertise into a beautiful, practical PDF book — 12 focused chapters, a branded cover and a contents page, built from your brief and delivered in your Whop chat. One-time purchase.">
+<link rel="icon" type="image/png" href="favicon.png">
+<meta property="og:title" content="Bookwright — Your ebook, written and designed for you.">
+<meta property="og:description" content="12 focused chapters, a branded cover, key takeaways in every chapter — your ebook, built from your brief and delivered in 48 hours.">
+<meta property="og:image" content="https://fathiwbs-alt.github.io/bookwright/og.png">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --bg:#FBF6EC; --panel:#FFFDF7; --panel2:#F6EEDF;
+    --ink:#2A1E22; --mut:#6E5A50; --dim:#9C897B;
+    --leather:#5C2333; --leather2:#431826;
+    --brass:#B98A3F; --brass2:#C39A5A;
+    --line:rgba(92,35,51,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:'Noto Serif',Georgia,'Times New Roman',serif;line-height:1.7;-webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(rgba(92,35,51,.045) 1px, transparent 1px);background-size:22px 22px}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .mono{font-family:'Cascadia Mono','Consolas','Courier New',monospace}
+  a{color:inherit;text-decoration:none}
+
+  .glow{position:fixed;inset:0;pointer-events:none;z-index:0;background:
+    radial-gradient(900px 460px at 8% -8%, rgba(92,35,51,.10), transparent 62%),
+    radial-gradient(820px 500px at 96% 4%, rgba(185,138,63,.10), transparent 64%)}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:20px;letter-spacing:-.01em}
+  .btile{position:relative;width:36px;height:36px;flex:none}
+  .btile .e{position:absolute;inset:0;border-radius:11px;border:2.5px solid var(--brass);transform:translate(3px,3px)}
+  .btile .f{position:absolute;inset:0;border-radius:11px;background:var(--leather);display:flex;align-items:center;justify-content:center}
+  .btile svg{display:block}
+  .word b{color:var(--leather)}
+  .word .a{color:var(--brass)}
+  .nav .cta{font-size:14.5px;padding:10px 18px;border-radius:10px;border:1.5px solid var(--leather);color:var(--leather);font-weight:700}
+  .nav .cta:hover{background:var(--leather);color:#FBF6EC}
+
+  main{position:relative;z-index:1}
+  section{padding:86px 0}
+  .kicker{font-size:11.5px;letter-spacing:.30em;text-transform:uppercase;color:var(--brass);font-weight:700;font-family:'Cascadia Mono',Consolas,monospace}
+  h1,h2{font-family:'Noto Serif Display','Noto Serif',Georgia,serif}
+  h1{font-size:clamp(38px,5.2vw,60px);line-height:1.1;letter-spacing:-.015em;margin:16px 0 18px;font-weight:800;color:var(--leather2)}
+  h1 .a{background:linear-gradient(90deg,#8A5A2B,var(--brass2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  h2{font-size:clamp(26px,3.3vw,37px);letter-spacing:-.01em;margin:12px 0 14px;font-weight:800;color:var(--leather2)}
+  .sub{color:var(--mut);font-size:17.5px;max-width:680px}
+  .hero{padding:96px 0 70px}
+  .ctas{display:flex;gap:14px;flex-wrap:wrap;margin:30px 0 12px}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:12px;font-weight:700;font-size:16.5px}
+  .btn.p{background:var(--leather);color:#FBF6EC;box-shadow:0 10px 26px rgba(92,35,51,.22)}
+  .btn.p:hover{background:var(--leather2)}
+  .btn.s{border:1.5px solid var(--line);color:var(--ink)}
+  .btn.s:hover{border-color:var(--brass);color:var(--leather)}
+  .fine{color:var(--dim);font-size:13.5px}
+  .stats{display:flex;gap:40px;flex-wrap:wrap;margin-top:38px;padding-top:28px;border-top:1px solid var(--line)}
+  .stat b{display:block;font-size:27px;letter-spacing:-.01em;color:var(--leather2)}
+  .stat span{color:var(--dim);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-family:'Cascadia Mono',Consolas,monospace}
+
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:42px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:0 2px 14px rgba(92,35,51,.05)}
+  .card h3{font-size:17.5px;margin-bottom:8px;color:var(--leather2)}
+  .card p{color:var(--mut);font-size:14.5px}
+  .card .tag{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);font-family:'Cascadia Mono',Consolas,monospace;margin-bottom:10px}
+  .card.f{border-color:rgba(185,138,63,.45)}
+  .card.f .tag{color:var(--leather)}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:42px}
+  .step{background:var(--panel2);border:1px solid var(--line);border-radius:16px;padding:26px}
+  .step .n{font-family:'Cascadia Mono',Consolas,monospace;font-size:13px;color:var(--leather);letter-spacing:.2em}
+  .step h3{font-size:18px;margin:10px 0 8px;color:var(--leather2)}
+  .step p{color:var(--mut);font-size:14.5px}
+
+  .price{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:22px;padding:40px;margin-top:44px;display:grid;grid-template-columns:1.15fr .85fr;gap:36px;box-shadow:0 4px 24px rgba(92,35,51,.07)}
+  .price .amt{font-size:56px;font-weight:800;letter-spacing:-.02em;color:var(--leather2)}
+  .price .amt small{font-size:17px;color:var(--mut);font-weight:600}
+  .list{list-style:none;margin-top:18px}
+  .list li{padding:9px 0;border-bottom:1px dashed var(--line);color:var(--mut);font-size:15px;display:flex;gap:10px;align-items:baseline}
+  .list li b{color:var(--ink);font-weight:600}
+  .list li .ck{color:var(--brass);font-family:'Cascadia Mono',Consolas,monospace}
+  .box{background:rgba(185,138,63,.08);border:1px solid rgba(185,138,63,.30);border-radius:16px;padding:24px}
+  .box p{color:var(--mut);font-size:14.5px}
+  .box b{color:var(--ink)}
+
+  .faq{margin-top:40px;display:grid;gap:12px}
+  details{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 22px}
+  details summary{cursor:pointer;font-weight:700;font-size:16px;list-style:none;color:var(--leather2)}
+  details summary::-webkit-details-marker{display:none}
+  details summary::after{content:"+";float:right;color:var(--brass);font-family:'Cascadia Mono',Consolas,monospace}
+  details[open] summary::after{content:"–"}
+  details p{color:var(--mut);font-size:14.5px;margin-top:12px}
+
+  footer{border-top:1px solid var(--line);padding:34px 0 46px;color:var(--dim);font-size:13.5px;position:relative;z-index:1}
+  .foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center}
+  .foot a{color:var(--mut)} .foot a:hover{color:var(--leather)}
+
+  @media(max-width:900px){.grid,.steps{grid-template-columns:1fr 1fr}.price{grid-template-columns:1fr}}
+  @media(max-width:620px){.grid,.steps{grid-template-columns:1fr}section{padding:62px 0}}
+</style>
+</head>
+<body>
+<div class="glow"></div>
+
+<header><div class="wrap nav">
+  <a class="brand" href="#top">
+    <span class="btile"><span class="e"></span><span class="f">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 6.4C10.2 5 7.7 4.5 5 4.8v13.7c2.7-.3 5.2.2 7 1.6 1.8-1.4 4.3-1.9 7-1.6V4.8c-2.7-.3-5.2.2-7 1.6Z" stroke="#C39A5A" stroke-width="1.7" stroke-linejoin="round"/><path d="M12 6.4V20" stroke="#C39A5A" stroke-width="1.7"/></svg>
+    </span></span>
+    <span class="word"><b>Book</b><span class="a">wright</span></span>
+  </a>
+  <a class="cta" href="https://whop.com/bookwright/">Get your ebook →</a>
+</div></header>
+
+<main>
+<section class="hero wrap" id="top">
+  <div class="kicker">Done-for-you ebooks · written, designed, delivered</div>
+  <h1>Your expertise, as a book <span class="a">your audience will finish.</span></h1>
+  <p class="sub">Bookwright turns your topic into a beautiful, practical PDF book — 12 focused chapters, a branded cover, a contents page and a "Key takeaways" box in every chapter. Built from your brief and delivered right in your Whop chat.</p>
+  <div class="ctas">
+    <a class="btn p" href="https://whop.com/bookwright/">Get your ebook — $200 one-time</a>
+    <a class="btn s" href="#inside">See what's inside</a>
+  </div>
+  <div class="fine">One-time purchase · No subscription · ~48-hour delivery · One free revision round</div>
+  <div class="stats">
+    <div class="stat"><b>12</b><span>Chapters per book</span></div>
+    <div class="stat"><b>36+</b><span>Designed pages</span></div>
+    <div class="stat"><b>48h</b><span>Brief to delivery</span></div>
+    <div class="stat"><b>7-day</b><span>Free revisions</span></div>
+  </div>
+</section>
+
+<section class="wrap" id="inside">
+  <div class="kicker">What's inside</div>
+  <h2>A complete book. Not a draft.</h2>
+  <p class="sub">Every Bookwright title is written as a practical guide the reader can act on — structured like a real published book, branded to you, and ready to use the moment it lands.</p>
+  <div class="grid">
+    <div class="card"><span class="tag">01 · Structure</span><h3>12 focused chapters</h3><p>A clear progression from first step to mastery — each chapter 650–850 words of concrete, actionable guidance in your voice and tone.</p></div>
+    <div class="card"><span class="tag">02 · Retention</span><h3>Key takeaways per chapter</h3><p>Every chapter closes with a highlighted "Key takeaways" box — so readers remember the point and actually use the book.</p></div>
+    <div class="card"><span class="tag">03 · Branding</span><h3>Branded cover + contents</h3><p>A cover page designed around your brand name, plus a linked contents page — it looks like your book from page one.</p></div>
+    <div class="card"><span class="tag">04 · Format</span><h3>Print-ready A4 PDF</h3><p>One polished PDF, ready to hand out, upload, print, or attach in email — no editing required.</p></div>
+    <div class="card"><span class="tag">05 · Use cases</span><h3>Built to work for you</h3><p>A lead magnet that grows your list, an opt-in gift, a client resource, or a bonus for your community or course.</p></div>
+    <div class="card f"><span class="tag">06 · Revisions</span><h3>One free revision round</h3><p>If something doesn't match your brief, tell us within 7 days of delivery and we'll rework or correct it.</p></div>
+  </div>
+</section>
+
+<section class="wrap" id="how">
+  <div class="kicker">How it works</div>
+  <h2>Brief in. Finished book out.</h2>
+  <div class="steps">
+    <div class="step"><div class="n">STEP 01</div><h3>Buy on Whop</h3><p>Grab your ebook on our Whop store — one-time $200, no subscription.</p></div>
+    <div class="step"><div class="n">STEP 02</div><h3>Send your brief</h3><p>In the Whop chat, send your brand name, your topic, who the book is for and what it should achieve. That's the whole brief.</p></div>
+    <div class="step"><div class="n">STEP 03</div><h3>Get your PDF</h3><p>We write and design the full book and deliver the PDF in the same chat — typically within 48 hours.</p></div>
+  </div>
+</section>
+
+<section class="wrap" id="pricing">
+  <div class="kicker">Pricing</div>
+  <h2>One book. One flat price.</h2>
+  <div class="price">
+    <div>
+      <div class="amt">$200 <small>USD · one-time</small></div>
+      <ul class="list">
+        <li><span class="ck">▸</span><b>12-chapter ebook</b>&nbsp;— structured, practical, written for your audience</li>
+        <li><span class="ck">▸</span><b>"Key takeaways" box</b>&nbsp;— at the end of every chapter</li>
+        <li><span class="ck">▸</span><b>Branded cover page</b>&nbsp;— your brand name, designed</li>
+        <li><span class="ck">▸</span><b>Linked contents page</b>&nbsp;— clean, book-style navigation</li>
+        <li><span class="ck">▸</span><b>Print-ready A4 PDF</b>&nbsp;— share, print or upload anywhere</li>
+        <li><span class="ck">▸</span><b>One free revision round</b>&nbsp;— within 7 days of delivery</li>
+      </ul>
+    </div>
+    <div class="box">
+      <p><b>Written around your brand.</b> The book speaks in your name, in your tone — your expertise, organized into a resource your audience keeps.</p>
+      <p style="margin-top:12px"><b>Who it's for.</b> Coaches, consultants, creators and agencies who want a serious lead magnet or client resource without writing it themselves.</p>
+      <p style="margin-top:12px"><b>Questions first?</b> Message us on Whop before you buy — we answer fast.</p>
+      <div class="ctas" style="margin:20px 0 0"><a class="btn p" href="https://whop.com/bookwright/">Get your ebook →</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="faq">
+  <div class="kicker">FAQ</div>
+  <h2>Questions, answered.</h2>
+  <div class="faq">
+    <details><summary>What do I need to send after buying?</summary><p>Four things: your brand name, your book topic, who it's for (your audience), and what you want it to achieve (e.g. a lead magnet, a client gift). Optionally add a tone note. That's the whole brief — the more specific you are, the sharper the book.</p></details>
+    <details><summary>How fast will I get my ebook?</summary><p>Typically within 48 hours of your brief. The finished PDF is delivered directly in your Whop chat, and we'll message you the moment it's ready.</p></details>
+    <details><summary>Can I use it as a lead magnet or sell it?</summary><p>Yes — the book is written for your brand and it's yours to use: as a lead magnet, an opt-in gift, a client resource, or a bonus inside your community or course.</p></details>
+    <details><summary>What if I want changes?</summary><p>Every book includes one free revision round within 7 days of delivery. If something doesn't match your brief, tell us in the chat and we'll fix it.</p></details>
+    <details><summary>Is this a subscription?</summary><p>No. The Done-For-You Ebook is a one-time purchase of $200. No renewal, no future charges.</p></details>
+    <details><summary>What format do I get?</summary><p>A single print-ready A4 PDF with a branded cover, a contents page, 12 chapters and key-takeaways boxes. It works for digital sharing, printing, or attaching to emails.</p></details>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap foot">
+  <div>© 2026 Bookwright — done-for-you ebook studio.</div>
+  <div><a href="https://whop.com/bookwright/">whop.com/bookwright</a></div>
+</div></footer>
+</body>
+</html>
